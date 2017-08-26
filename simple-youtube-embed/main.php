@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Simple YouTube Embed
-Version: 1.0.5
+Version: 1.0.6
 Plugin URI: http://noorsplugin.com/2014/07/17/simple-youtube-embed-plugin/
 Author: naa986
 Author URI: http://noorsplugin.com/
@@ -15,7 +15,7 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
 {
     class SIMPLE_YOUTUBE_EMBED
     {
-        var $plugin_version = '1.0.5';
+        var $plugin_version = '1.0.6';
         var $plugin_url;
         var $plugin_path;
         function __construct()
@@ -99,6 +99,9 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
 
 function simple_youtube_video_embed($html, $url, $attr) 
 {
+    if(is_admin()){ //do not filter in visual mode so the video preview is shown
+        return $html;
+    }
     $yt_pattern = "/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/";
     if(preg_match($yt_pattern,$url,$matches))
     {
