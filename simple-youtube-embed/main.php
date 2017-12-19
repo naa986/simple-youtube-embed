@@ -2,9 +2,9 @@
 /*
 Plugin Name: Simple YouTube Embed
 Version: 1.0.6
-Plugin URI: http://noorsplugin.com/2014/07/17/simple-youtube-embed-plugin/
+Plugin URI: https://noorsplugin.com/simple-youtube-embed-plugin/
 Author: naa986
-Author URI: http://noorsplugin.com/
+Author URI: https://noorsplugin.com/
 Description: Embed YouTube video beautifully on your WordPress site
 Text Domain: simple-youtube-embed
 Domain Path: /languages 

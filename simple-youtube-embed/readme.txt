@@ -14,6 +14,10 @@ Embed YouTube video in WordPress beautifully. Embed YouTube video with a URL or 
 
 [Simple YouTube Embed](https://noorsplugin.com/simple-youtube-embed-plugin/) plugin is the easiest way to embed YouTube videos in WordPress. This plugin extends the default YouTube embed with advanced player parameters. When the page is rendered, a high resolution thumbnail image is displayed instead of the YouTube video player.
 
+= Requirements =
+
+* A self-hosted website running on [WordPress hosting](https://noorsplugin.com/best-cheap-wordpress-hosting/)
+
 = Features =
 
 * Pretty YouTube video embed
