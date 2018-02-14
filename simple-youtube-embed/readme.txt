@@ -30,6 +30,8 @@ Embed YouTube video in WordPress beautifully. Embed YouTube video with a URL or 
 
 = Simple YouTube Embed Usage =
 
+https://www.youtube.com/watch?v=On3qBjPVi8Y&rel=0
+
 Create a new post/page and enter your YouTube video URL to embed it. Make sure the URL is on its own line and not hyperlinked (clickable when viewing the post). In order to avoid formatting errors, It's better to place the URL into the content area in text mode. For example:
 
 `http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g`
