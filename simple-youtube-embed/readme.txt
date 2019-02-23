@@ -1,9 +1,9 @@
 === Simple YouTube Embed ===
 Contributors: naa986
 Donate link: https://noorsplugin.com/
-Tags: video, embed, youtube, embed videos, embed youtube, embedding youtube, fluid, html5, iPad, iphone, mobile, simple, simple youtube, video plugin, wordpress youtube embed, youtube embed, youtube player, youtube plugin, responsive, shortcode, wordpress, you tube, youtube player, youtube-plugin
+Tags: youtube, YouTube embed, youtube player, youtube playlist, youtube widget
 Requires at least: 3.0
-Tested up to: 4.9
+Tested up to: 5.1
 Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -16,7 +16,7 @@ Embed YouTube video in WordPress beautifully. Embed YouTube video with a URL or 
 
 = Requirements =
 
-* A self-hosted website running on [WordPress hosting](https://noorsplugin.com/best-cheap-wordpress-hosting/)
+* A self-hosted website running on [WordPress hosting](https://noorsplugin.com/how-to-choose-the-right-wordpress-hosting/)
 
 = Features =
 
