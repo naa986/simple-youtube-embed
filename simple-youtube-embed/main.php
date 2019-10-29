@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Simple YouTube Embed
-Version: 1.0.6
+Version: 1.0.7
 Plugin URI: https://noorsplugin.com/simple-youtube-embed-plugin/
 Author: naa986
 Author URI: https://noorsplugin.com/
@@ -15,7 +15,7 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
 {
     class SIMPLE_YOUTUBE_EMBED
     {
-        var $plugin_version = '1.0.6';
+        var $plugin_version = '1.0.7';
         var $plugin_url;
         var $plugin_path;
         function __construct()
@@ -25,7 +25,7 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
             define('SIMPLE_YOUTUBE_EMBED_URL', $this->plugin_url());
             define('SIMPLE_YOUTUBE_EMBED_PATH', $this->plugin_path());
             $this->plugin_includes();
-            add_action( 'wp_enqueue_scripts', array( $this, 'plugin_scripts' ), 0 );
+            //add_action( 'wp_enqueue_scripts', array( $this, 'plugin_scripts' ), 0 );
         }
         function plugin_includes()
         {
@@ -35,7 +35,7 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
             }
             add_action('plugins_loaded', array($this, 'plugins_loaded_handler'));
             add_action('admin_menu', array( $this, 'add_options_menu' ));
-            add_action('wp_head', 'simple_youtube_video_embed_js');
+            //add_action('wp_head', 'simple_youtube_video_embed_js');
             add_filter('embed_oembed_html', 'simple_youtube_video_embed', 10, 3);
         }
         function plugin_scripts()
@@ -97,48 +97,50 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
     $GLOBALS['simple_youtube_embed'] = new SIMPLE_YOUTUBE_EMBED();
 }
 
-function simple_youtube_video_embed($html, $url, $attr) 
+function simple_youtube_video_embed($html, $url, $attr)
 {
     if(is_admin()){ //do not filter in visual mode so the video preview is shown
         return $html;
     }
-    $yt_pattern = "/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/";
-    if(preg_match($yt_pattern,$url,$matches))
-    {
-        $youtube_id = $matches[1];
-        $image_url = 'http://img.youtube.com/vi/'.$youtube_id.'/maxresdefault.jpg';
-        $response = wp_remote_request($image_url);
-        $response_code = wp_remote_retrieve_response_code($response);
-        $videoid = ' data-pe-videoid="'.$youtube_id.'"'; 
-        $fitvids = ' data-pe-fitvids="true"';
-        $previewsize = '';
-        if($response_code=="404"){
-            $previewsize = ' data-pe-preview-size="high"';
+    $data = array();
+    $parsed_url = parse_url($url); //parse the url to get query parameters
+    if(isset($parsed_url['query']) && !empty($parsed_url['query'])){
+        parse_str($parsed_url['query'], $data); //get query parameters into an array
+    }
+    else{
+        return $html; 
+    }
+    $src = '';
+    preg_match('/src="(.*?)"/', $html, $matches);
+    if(isset($matches[1]) && !empty($matches[1])){
+        $src = $matches[1];
+    }
+    else{
+        return $html;
+    }
+    if(isset($data['autoplay']) && $data['autoplay']=="1"){
+        if(strpos($src, 'autoplay') === false){
+            $src = add_query_arg('autoplay', '1', $src);
+            $html = preg_replace('/src="(.*?)"/', 'src="'.$src.'"', $html);
         }
-        $showrelated = ''; 
-        $showcontrols = '';
-        $showinfo = '';
-        $allowFullScreen = '';
-        $parsed_url = parse_url($url); //parse the url to get query parameters
-        if(isset($parsed_url['query']) && !empty($parsed_url['query'])){
-            parse_str($parsed_url['query'], $data); //get query parameters into an array
-            if(isset($data['rel']) && $data['rel']=="0"){
-                $showrelated = ' data-pe-show-related="false"';
-            }
-            if(isset($data['controls']) && $data['controls']=="0"){
-                $showcontrols = ' data-pe-show-controls="false"';
-            }
-            if(isset($data['showinfo']) && $data['showinfo']=="0"){
-                $showinfo = ' data-pe-show-info="false"';
-            }
-            if(isset($data['fs']) && $data['fs']=="0"){
-                $allowFullScreen = ' data-pe-allow-fullscreen="false"';
-            }
+    }
+    if(isset($data['controls']) && $data['controls']=="0"){
+        if(strpos($src, 'controls') === false){
+            $src = add_query_arg('controls', '0', $src);
+            $html = preg_replace('/src="(.*?)"/', 'src="'.$src.'"', $html);
         }
-        $embed_code = <<<EOT
-        <div class="pretty-embed"{$videoid}{$fitvids}{$previewsize}{$showrelated}{$showcontrols}{$showinfo}{$allowFullScreen}></div>  
-EOT;
-        $html = $embed_code;
+    }
+    if(isset($data['fs']) && $data['fs']=="0"){
+        if(strpos($src, 'fs') === false){
+            $src = add_query_arg('fs', '0', $src);
+            $html = preg_replace('/src="(.*?)"/', 'src="'.$src.'"', $html);
+        }
+    }
+    if(isset($data['rel']) && $data['rel']=="0"){
+        if(strpos($src, 'rel') === false){
+            $src = add_query_arg('rel', '0', $src);
+            $html = preg_replace('/src="(.*?)"/', 'src="'.$src.'"', $html);
+        }
     }
     return $html; 
 }

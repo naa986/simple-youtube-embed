@@ -3,8 +3,8 @@ Contributors: naa986
 Donate link: https://noorsplugin.com/
 Tags: youtube, YouTube embed, youtube player, youtube playlist, youtube widget
 Requires at least: 3.0
-Tested up to: 5.1
-Stable tag: 1.0.6
+Tested up to: 5.2
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Embed YouTube video in WordPress beautifully. Embed YouTube video with a URL or 
 
 == Description ==
 
-[Simple YouTube Embed](https://noorsplugin.com/simple-youtube-embed-plugin/) plugin is the easiest way to embed YouTube videos in WordPress. This plugin extends the default YouTube embed with advanced player parameters. When the page is rendered, a high resolution thumbnail image is displayed instead of the YouTube video player.
+[Simple YouTube Embed](https://noorsplugin.com/simple-youtube-embed-plugin/) plugin is the easiest way to embed YouTube videos in WordPress. This plugin extends the default YouTube embed with advanced player parameters.
 
 = Requirements =
 
@@ -22,7 +22,7 @@ Embed YouTube video in WordPress beautifully. Embed YouTube video with a URL or 
 
 * Pretty YouTube video embed
 * Responsive and mobile friendly
-* Embed a YouTube video with a high definition thumbnail image as the poster
+* Automatically play a video
 * Enable/Disable display of suggested videos when the video finishes
 * Enable/Disable player controls
 * Enable/Disable video information
@@ -32,9 +32,15 @@ Embed YouTube video in WordPress beautifully. Embed YouTube video with a URL or 
 
 https://www.youtube.com/watch?v=On3qBjPVi8Y&rel=0
 
-Create a new post/page and enter your YouTube video URL to embed it. Make sure the URL is on its own line and not hyperlinked (clickable when viewing the post). In order to avoid formatting errors, It's better to place the URL into the content area in text mode. For example:
+Create a new post/page and add a YouTube block. Copy and paste the YouTube video URL into it. For example:
 
 `http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g`
+
+**YouTube Video Autoplay**
+
+In order to automatically play a video you can add "autoplay=1" to your YouTube URL.
+
+`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&autoplay=1`
 
 **Related YouTube Videos**
 
@@ -47,12 +53,6 @@ In order to disable related videos from showing you can add "rel=0" to your YouT
 If you do not want to show player controls you can add "controls=0" to your YouTube URL.
 
 `http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&controls=0`
-
-**YouTube Video Info**
-
-If you do not want to show information like the video title and uploader you can add "showinfo=0" to your YouTube URL.
-
-`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&showinfo=0`
 
 **YouTube Video Fullscreen**
 
@@ -92,6 +92,9 @@ Yes.
 none
 
 == Changelog ==
+
+= 1.0.7 =
+* Some improvements to make it compatible with the block based editor.
 
 = 1.0.6 =
 * A preview of the YouTube video is now shown in the visual editor instead of a blank background.
