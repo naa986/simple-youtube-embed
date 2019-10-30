@@ -3,7 +3,7 @@ Contributors: naa986
 Donate link: https://noorsplugin.com/
 Tags: youtube, YouTube embed, youtube player, youtube playlist, youtube widget
 Requires at least: 3.0
-Tested up to: 5.2
+Tested up to: 5.3
 Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -30,7 +30,7 @@ Embed YouTube video in WordPress beautifully. Embed YouTube video with a URL or 
 
 = Simple YouTube Embed Usage =
 
-https://www.youtube.com/watch?v=On3qBjPVi8Y&rel=0
+https://www.youtube.com/watch?v=-8yCP-CnUSQ&rel=0
 
 Create a new post/page and add a YouTube block. Copy and paste the YouTube video URL into it. For example:
 
