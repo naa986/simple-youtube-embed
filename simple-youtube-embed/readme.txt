@@ -3,7 +3,7 @@ Contributors: naa986
 Donate link: https://noorsplugin.com/
 Tags: youtube, YouTube embed, youtube player, youtube playlist, youtube widget
 Requires at least: 3.0
-Tested up to: 5.4
+Tested up to: 5.5
 Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
