@@ -1,32 +1,39 @@
 === Simple YouTube Embed ===
 Contributors: naa986
 Donate link: https://noorsplugin.com/
-Tags: youtube, YouTube embed, youtube player, youtube playlist, youtube widget
+Tags: youtube, video, embed, lazy load, performance
 Requires at least: 3.0
 Tested up to: 5.5
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Embed YouTube video in WordPress beautifully. Embed YouTube video with a URL or shortcode and customize the player using this YouTube embed plugin.
+Embed YouTube videos in WordPress with lazy loading beautifully. Embed YouTube video with a URL or shortcode and customize the player using this YouTube embed plugin.
 
 == Description ==
 
-[Simple YouTube Embed](https://noorsplugin.com/simple-youtube-embed-plugin/) plugin is the easiest way to embed YouTube videos in WordPress. This plugin extends the default YouTube embed with advanced player parameters.
+[Simple YouTube Embed](https://noorsplugin.com/simple-youtube-embed-plugin/) plugin is the easiest way to embed YouTube videos in WordPress with native lazy loading support. This plugin extends the default YouTube embed with advanced player parameters.
 
-= Requirements =
+Simple YouTube Embed allows you to lazy load your videos by using the native lazy loading mechanism supported in your browser (The same mechanism that WordPress uses to lazy load images). 
 
-* A self-hosted website running on [WordPress hosting](https://noorsplugin.com/how-to-choose-the-right-wordpress-hosting/)
+Unlike other YouTube plugins, It doesn't replace your on-page video embed code with JavaScript/HTML code. Loading a video with JavaScript doesn't provide any video SEO benefit as a search engine crawler will only see some code instead of the actual video object. 
+
+Simple YouTube Embed is easy to use because there is no setting to configure. It uses the oEmbed API so your videos will be responsive and provide all the benefits that core WordPress YouTube embed has to offer. YouTube videos on your website will continue to work even if you choose to deactivate the plugin.
 
 = Features =
 
-* Pretty YouTube video embed
-* Responsive and mobile friendly
-* Automatically play a video
-* Enable/Disable display of suggested videos when the video finishes
-* Enable/Disable player controls
-* Enable/Disable video information
-* Enable/Disable fullscreen
+* Embed YouTube videos with lazy loading.
+* Improve your website performance and Google PageSpeed score.
+* Pretty YouTube video embed.
+* Responsive and mobile friendly.
+* Proper YouTube video embed with no additional JavaScript code
+* No setting to configure. Install, activate and start using it.
+* No YouTube API key needed.
+* Automatically play a video.
+* Enable/Disable display of suggested videos when the video finishes.
+* Enable/Disable player controls.
+* Enable/Disable video information.
+* Enable/Disable fullscreen.
 
 = Simple YouTube Embed Usage =
 
@@ -62,11 +69,6 @@ If you do not want to allow fullscreen option in the player you can add "fs=0" t
 
 For documentation please visit the [Simple YouTube Embed](https://noorsplugin.com/simple-youtube-embed-plugin/) plugin page
 
-= Recommended Reading =
-
-* Simple YouTube Embed [Documentation](https://noorsplugin.com/simple-youtube-embed-plugin/)
-* My Other [Free WordPress Plugins](https://noorsplugin.com/wordpress-plugins/)
-
 == Installation ==
 
 1. Go to the Add New plugins screen in your WordPress Dashboard
@@ -75,6 +77,10 @@ For documentation please visit the [Simple YouTube Embed](https://noorsplugin.co
 1. Click "Install Now" and then hit the activate button
 
 == Frequently Asked Questions ==
+
+= Can I use this plugin to lazy load YouTube videos? =
+
+Yes.
 
 = Can I use this plugin to embed a YouTube video with High Quality Thumbnail? =
 
@@ -92,6 +98,9 @@ Yes.
 none
 
 == Changelog ==
+
+= 1.0.8 =
+* Added native lazy loading support for YouTube videos.
 
 = 1.0.7 =
 * Some improvements to make it compatible with the block based editor.

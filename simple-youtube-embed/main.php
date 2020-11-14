@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Simple YouTube Embed
-Version: 1.0.7
+Version: 1.0.8
 Plugin URI: https://noorsplugin.com/simple-youtube-embed-plugin/
 Author: naa986
 Author URI: https://noorsplugin.com/
-Description: Embed YouTube video beautifully on your WordPress site
+Description: Embed YouTube videos in WordPress with native lazy loading support
 Text Domain: simple-youtube-embed
 Domain Path: /languages 
 */
@@ -15,7 +15,7 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
 {
     class SIMPLE_YOUTUBE_EMBED
     {
-        var $plugin_version = '1.0.7';
+        var $plugin_version = '1.0.8';
         var $plugin_url;
         var $plugin_path;
         function __construct()
@@ -142,6 +142,9 @@ function simple_youtube_video_embed($html, $url, $attr)
             $html = preg_replace('/src="(.*?)"/', 'src="'.$src.'"', $html);
         }
     }
+    if(!array_key_exists('loading', $attr)){
+        $html = str_replace('></iframe>', ' loading="lazy"></iframe>', $html);
+    }  
     return $html; 
 }
 
