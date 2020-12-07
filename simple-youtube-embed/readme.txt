@@ -3,7 +3,7 @@ Contributors: naa986
 Donate link: https://noorsplugin.com/
 Tags: youtube, video, embed, lazy load, performance
 Requires at least: 3.0
-Tested up to: 5.5
+Tested up to: 5.6
 Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -82,13 +82,30 @@ For documentation please visit the [Simple YouTube Embed](https://noorsplugin.co
 
 Yes.
 
-= Can I use this plugin to embed a YouTube video with High Quality Thumbnail? =
+= Can I use this plugin to embed YouTube videos with High Quality Thumbnails? =
 
 Yes.
 
 = Is this plugin responsive? =
 
 Yes.
+
+= Can I use this plugin on YouTube app? =
+
+No.
+
+= Can I access YouTube studio with this plugin? =
+
+No
+
+= Can I connect this plugin to my YouTube channel? =
+
+No
+
+= Can I open YouTube with this plugin? =
+
+No
+
 
 == Screenshots ==
 
