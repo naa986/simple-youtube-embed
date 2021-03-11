@@ -3,18 +3,16 @@ Contributors: naa986
 Donate link: https://noorsplugin.com/
 Tags: youtube, video, embed, lazy load, performance
 Requires at least: 3.0
-Tested up to: 5.6
-Stable tag: 1.0.8
+Tested up to: 5.7
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Embed YouTube videos in WordPress with lazy loading beautifully. Embed YouTube video with a URL or shortcode and customize the player using this YouTube embed plugin.
+Embed YouTube videos in WordPress beautifully. Embed YouTube video with a URL or shortcode and customize the player using this YouTube embed plugin.
 
 == Description ==
 
-[Simple YouTube Embed](https://noorsplugin.com/simple-youtube-embed-plugin/) plugin is the easiest way to embed YouTube videos in WordPress with native lazy loading support. This plugin extends the default YouTube embed with advanced player parameters.
-
-Simple YouTube Embed allows you to lazy load your videos by using the native lazy loading mechanism supported in your browser (The same mechanism that WordPress uses to lazy load images). 
+[Simple YouTube Embed](https://noorsplugin.com/simple-youtube-embed-plugin/) plugin is the easiest way to embed YouTube videos in WordPress. This plugin extends the default YouTube embed with advanced player parameters.
 
 Unlike other YouTube plugins, It doesn't replace your on-page video embed code with JavaScript/HTML code. Loading a video with JavaScript doesn't provide any video SEO benefit as a search engine crawler will only see some code instead of the actual video object. 
 
@@ -22,8 +20,6 @@ Simple YouTube Embed is easy to use because there is no setting to configure. It
 
 = Features =
 
-* Embed YouTube videos with lazy loading.
-* Improve your website performance and Google PageSpeed score.
 * Pretty YouTube video embed.
 * Responsive and mobile friendly.
 * Proper YouTube video embed with no additional JavaScript code
@@ -78,10 +74,6 @@ For documentation please visit the [Simple YouTube Embed](https://noorsplugin.co
 
 == Frequently Asked Questions ==
 
-= Can I use this plugin to lazy load YouTube videos? =
-
-Yes.
-
 = Can I use this plugin to embed YouTube videos with High Quality Thumbnails? =
 
 Yes.
@@ -115,6 +107,9 @@ No
 none
 
 == Changelog ==
+
+= 1.0.9 =
+* WordPress 5.7 compatibility update.
 
 = 1.0.8 =
 * Added native lazy loading support for YouTube videos.
