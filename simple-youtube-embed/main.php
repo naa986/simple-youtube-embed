@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Simple YouTube Embed
-Version: 1.0.9
+Version: 1.1.0
 Plugin URI: https://noorsplugin.com/simple-youtube-embed-plugin/
 Author: naa986
 Author URI: https://noorsplugin.com/
@@ -15,7 +15,7 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
 {
     class SIMPLE_YOUTUBE_EMBED
     {
-        var $plugin_version = '1.0.9';
+        var $plugin_version = '1.1.0';
         var $plugin_url;
         var $plugin_path;
         function __construct()
@@ -32,11 +32,12 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
             if(is_admin( ) )
             {
                 add_filter('plugin_action_links', array($this,'add_plugin_action_links'), 10, 2 );
+                include_once('extensions/simple-youtube-embed-extensions.php');
             }
             add_action('plugins_loaded', array($this, 'plugins_loaded_handler'));
             add_action('admin_menu', array( $this, 'add_options_menu' ));
             //add_action('wp_head', 'simple_youtube_video_embed_js');
-            add_filter('embed_oembed_html', 'simple_youtube_video_embed', 10, 3);
+            add_filter('embed_oembed_html', 'simple_youtube_video_embed', 10, 4);
         }
         function plugin_scripts()
         {
@@ -84,20 +85,59 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
         
         function display_options_page() 
         {
+            $plugin_tabs = array(
+                'simple-youtube-embed-settings' => __('Extensions', 'simple-youtube-embed'),
+                //'simple-youtube-embed-settings&action=extensions' => __('Extensions', 'simple-youtube-embed')
+            );
             $url = "https://noorsplugin.com/simple-youtube-embed-plugin/";
-            $link_text = sprintf(wp_kses(__('Please visit the <a target="_blank" href="%s">Simple YouTube Embed</a> documentation page for usage instructions.', 'simple-youtube-embed'), array('a' => array('href' => array(), 'target' => array()))), esc_url($url));
-            ?>
-            <div class="wrap"><h2>Simple YouTube Embed - v<?php echo $this->plugin_version; ?></h2>
-            <div class="update-nag"><?php echo $link_text;?></div>
-            </div>
-            <?php
+            $link_text = sprintf(wp_kses(__('Please visit the <a target="_blank" href="%s">Simple YouTube Embed</a> documentation page for usage instructions.', 'simple-youtube-embed'), array('a' => array('href' => array(), 'target' => array()))), esc_url($url));          
+            echo '<div class="wrap">';
+            echo '<h2>Simple YouTube Embed - v'.$this->plugin_version.'</h2>';
+            echo '<div class="notice notice-info">'.$link_text.'</div>';
+            echo '<div id="poststuff"><div id="post-body">';
+            
+            if (isset($_GET['page'])) {
+                $current = sanitize_text_field($_GET['page']);
+                if (isset($_GET['action'])) {
+                    $current .= "&action=" . sanitize_text_field($_GET['action']);
+                }
+            }
+            $content = '';
+            $content .= '<h2 class="nav-tab-wrapper">';
+            foreach ($plugin_tabs as $location => $tabname) {
+                if ($current == $location) {
+                    $class = ' nav-tab-active';
+                } else {
+                    $class = '';
+                }
+                $content .= '<a class="nav-tab' . $class . '" href="?page=' . $location . '">' . $tabname . '</a>';
+            }
+            $content .= '</h2>';
+            echo $content;
+
+            if(isset($_GET['action']))
+            { 
+                switch ($_GET['action'])
+                {
+                    case 'extensions':
+                        simple_youtube_embed_display_extensions();
+                        break;
+                }
+            }
+            else
+            {
+                simple_youtube_embed_display_extensions();
+            }
+        
+            echo '</div></div>';
+            echo '</div>';
         }
         
     }
     $GLOBALS['simple_youtube_embed'] = new SIMPLE_YOUTUBE_EMBED();
 }
 
-function simple_youtube_video_embed($html, $url, $attr)
+function simple_youtube_video_embed($html, $url, $attr, $post_ID)
 {
     if(is_admin()){ //do not filter in visual mode so the video preview is shown
         return $html;
@@ -142,6 +182,8 @@ function simple_youtube_video_embed($html, $url, $attr)
             $html = preg_replace('/src="(.*?)"/', 'src="'.$src.'"', $html);
         }
     }
+    
+    $html = apply_filters('simple_youtube_embed_oembed_html', $html, $url, $attr, $post_ID, $data, $src);
 
     return $html; 
 }

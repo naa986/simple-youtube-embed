@@ -4,7 +4,7 @@ Donate link: https://noorsplugin.com/
 Tags: youtube, video, embed, lazy load, performance
 Requires at least: 3.0
 Tested up to: 5.9
-Stable tag: 1.0.9
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,20 +18,31 @@ Unlike other YouTube plugins, It doesn't replace your on-page video embed code w
 
 Simple YouTube Embed is easy to use because there is no setting to configure. It uses the oEmbed API so your videos will be responsive and provide all the benefits that core WordPress YouTube embed has to offer. YouTube videos on your website will continue to work even if you choose to deactivate the plugin.
 
-= Features =
+=== Features ===
 
 * Pretty YouTube video embed.
+* Embed a video in WordPress from your YouTube channel.
 * Responsive and mobile friendly.
-* Proper YouTube video embed with no additional JavaScript code
+* Proper YouTube video embed with no additional JavaScript code.
 * No setting to configure. Install, activate and start using it.
 * No YouTube API key needed.
+* Embed YouTube videos in WordPress with the YouTube block
 * Automatically play a video.
 * Enable/Disable display of suggested videos when the video finishes.
 * Enable/Disable player controls.
 * Enable/Disable video information.
 * Enable/Disable fullscreen.
+* Enable white color in the YouTube player's video progress bar.
+* Disable keyboard controls in the player.
+* Specify a time when the player should stop playing the video.
+* Specify a time when the player should begin playing the video.
+* Prevent the YouTube logo from displaying in the control bar.
 
-= Simple YouTube Embed Usage =
+=== Simple YouTube Embed Extensions ===
+
+* [YouTube Advanced Parameters](https://noorsplugin.com/simple-youtube-embed-plugin/)
+
+=== How to Use the YouTube Embed Plugin in WordPress ===
 
 https://www.youtube.com/watch?v=-8yCP-CnUSQ&rel=0
 
@@ -63,7 +74,47 @@ If you do not want to allow fullscreen option in the player you can add "fs=0" t
 
 `http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&fs=0`
 
-For documentation please visit the [Simple YouTube Embed](https://noorsplugin.com/simple-youtube-embed-plugin/) plugin page
+=== YouTube Advanced Parameters ===
+
+With the Advanced Parameters extension you can use additional advanced parameters in your YouTube videos.
+
+**color**
+
+This parameter specifies the color that will be used in the player's video progress bar to highlight the amount of the video that the viewer has already seen.
+
+`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&color=white`
+
+Valid parameter values are red and white, and, by default, the player uses the color red in the video progress bar.
+
+Note: Setting the color parameter to white will disable the modestbranding option.
+
+**disablekb**
+
+Setting this parameter's value to 1 causes the player to not respond to keyboard controls. The default value is 0.
+
+`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&disablekb=1`
+
+**end**
+
+This parameter specifies the time, measured in seconds from the start of the video, when the player should stop playing the video. The parameter value is a positive integer.
+
+`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&end=10`
+
+The time is measured from the beginning of the video and not from the value of the start player parameter.
+
+**modestbranding**
+
+This parameter lets you use a YouTube player that does not show a YouTube logo. Setting the parameter value to 1 prevent the YouTube logo from displaying in the control bar.
+
+`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&modestbranding=1`
+
+**start**
+
+This parameter causes the player to begin playing the video at the given number of seconds from the start of the video. The parameter value is a positive integer.
+
+`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&start=5`
+
+For documentation please visit the [YouTube](https://noorsplugin.com/simple-youtube-embed-plugin/) plugin page
 
 == Installation ==
 
@@ -82,23 +133,6 @@ Yes.
 
 Yes.
 
-= Can I use this plugin on YouTube app? =
-
-No.
-
-= Can I access YouTube studio with this plugin? =
-
-No
-
-= Can I connect this plugin to my YouTube channel? =
-
-No
-
-= Can I open YouTube with this plugin? =
-
-No
-
-
 == Screenshots ==
 
 1. Simple YouTube Embed Demo
@@ -107,6 +141,9 @@ No
 none
 
 == Changelog ==
+
+= 1.1.0 =
+* Added support for YouTube advanced parameters.
 
 = 1.0.9 =
 * WordPress 5.7 compatibility update.
