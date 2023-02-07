@@ -4,7 +4,7 @@ Donate link: https://noorsplugin.com/
 Tags: youtube, video, embed, lazy load, performance
 Requires at least: 3.0
 Tested up to: 6.1
-Stable tag: 1.1.0
+Stable tag: 1.1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,6 +74,12 @@ If you do not want to allow fullscreen option in the player you can add "fs=0" t
 
 `http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&fs=0`
 
+**YouTube Video Playlist**
+
+If you want to turn a video into a single-video playlist you can add "playlist=VIDEO_ID" to your YouTube URL.
+
+`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&playlist=Vpg9yizPP_g`
+
 === YouTube Advanced Parameters ===
 
 With the Advanced Parameters extension you can use additional advanced parameters in your YouTube videos.
@@ -114,6 +120,14 @@ This parameter causes the player to begin playing the video at the given number 
 
 `http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&start=5`
 
+**loop**
+
+This parameter causes the video to play repeatedly. The parameter value is a positive integer (e.g. loop="1").
+
+In order for the loop feature to work, the video needs to be turned into a single-video playlist as well.
+
+`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&playlist=Vpg9yizPP_g&loop=1`
+
 For documentation please visit the [YouTube](https://noorsplugin.com/simple-youtube-embed-plugin/) plugin page
 
 == Installation ==
@@ -141,6 +155,9 @@ Yes.
 none
 
 == Changelog ==
+
+= 1.1.0.1 =
+* Added a parameter to turn a video into a playlist.
 
 = 1.1.0 =
 * Added support for YouTube advanced parameters.

@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Simple YouTube Embed
-Version: 1.1.0
+Version: 1.1.0.1
 Plugin URI: https://noorsplugin.com/simple-youtube-embed-plugin/
 Author: naa986
 Author URI: https://noorsplugin.com/
@@ -15,7 +15,7 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
 {
     class SIMPLE_YOUTUBE_EMBED
     {
-        var $plugin_version = '1.1.0';
+        var $plugin_version = '1.1.0.1';
         var $plugin_url;
         var $plugin_path;
         function __construct()
@@ -179,6 +179,12 @@ function simple_youtube_video_embed($html, $url, $attr, $post_ID)
     if(isset($data['rel']) && $data['rel']=="0"){
         if(strpos($src, 'rel') === false){
             $src = add_query_arg('rel', '0', $src);
+            $html = preg_replace('/src="(.*?)"/', 'src="'.$src.'"', $html);
+        }
+    }
+    if(isset($data['playlist']) && !empty($data['playlist'])){
+        if(strpos($src, 'playlist') === false){
+            $src = add_query_arg('playlist', $data['playlist'], $src);
             $html = preg_replace('/src="(.*?)"/', 'src="'.$src.'"', $html);
         }
     }
