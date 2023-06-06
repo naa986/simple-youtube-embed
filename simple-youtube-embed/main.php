@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Simple YouTube Embed
-Version: 1.1.0.1
+Version: 1.1.0.2
 Plugin URI: https://noorsplugin.com/simple-youtube-embed-plugin/
 Author: naa986
 Author URI: https://noorsplugin.com/
@@ -15,7 +15,7 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
 {
     class SIMPLE_YOUTUBE_EMBED
     {
-        var $plugin_version = '1.1.0.1';
+        var $plugin_version = '1.1.0.2';
         var $plugin_url;
         var $plugin_path;
         function __construct()
@@ -158,6 +158,12 @@ function simple_youtube_video_embed($html, $url, $attr, $post_ID)
     else{
         return $html;
     }
+    /* WordPress automatically adds ?feature=oembed to YouTube iframe src. This causes an error in search console: Google could not determine the prominent video on the page */            
+    if(strpos($src, 'feature') !== false){
+        $src = remove_query_arg('feature', $src);
+        $html = preg_replace('/src="(.*?)"/', 'src="'.$src.'"', $html);
+    }
+    //    
     if(isset($data['autoplay']) && $data['autoplay']=="1"){
         if(strpos($src, 'autoplay') === false){
             $src = add_query_arg('autoplay', '1', $src);
