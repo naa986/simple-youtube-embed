@@ -1,10 +1,10 @@
 === Simple YouTube Embed ===
 Contributors: naa986
 Donate link: https://noorsplugin.com/
-Tags: youtube, video, embed, lazy load, performance
+Tags: youtube, video, embed, iframe, responsive
 Requires at least: 3.0
 Tested up to: 6.3
-Stable tag: 1.1.0.2
+Stable tag: 1.1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,7 @@ Simple YouTube Embed is easy to use because there is no setting to configure. It
 * Specify a time when the player should stop playing the video.
 * Specify a time when the player should begin playing the video.
 * Prevent the YouTube logo from displaying in the control bar.
+* Mute a YouTube Video
 
 === Simple YouTube Embed Extensions ===
 
@@ -48,37 +49,43 @@ https://www.youtube.com/watch?v=-8yCP-CnUSQ&rel=0
 
 Create a new post/page and add a YouTube block. Copy and paste the YouTube video URL into it. For example:
 
-`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g`
+`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g`
 
 **YouTube Video Autoplay**
 
 In order to automatically play a video you can add "autoplay=1" to your YouTube URL.
 
-`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&autoplay=1`
+`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&autoplay=1`
 
 **Related YouTube Videos**
 
 In order to disable related videos from showing you can add "rel=0" to your YouTube URL.
 
-`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&rel=0`
+`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&rel=0`
 
 **YouTube Video Controls**
 
 If you do not want to show player controls you can add "controls=0" to your YouTube URL.
 
-`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&controls=0`
+`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&controls=0`
 
 **YouTube Video Fullscreen**
 
 If you do not want to allow fullscreen option in the player you can add "fs=0" to your YouTube URL.
 
-`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&fs=0`
+`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&fs=0`
+
+**YouTube Video Mute**
+
+To start a video in the muted state you can add "mute=1" to your YouTube URL.
+
+`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&mute=1`
 
 **YouTube Video Playlist**
 
 If you want to turn a video into a single-video playlist you can add "playlist=VIDEO_ID" to your YouTube URL.
 
-`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&playlist=Vpg9yizPP_g`
+`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&playlist=Vpg9yizPP_g`
 
 === YouTube Advanced Parameters ===
 
@@ -88,7 +95,7 @@ With the Advanced Parameters extension you can use additional advanced parameter
 
 This parameter specifies the color that will be used in the player's video progress bar to highlight the amount of the video that the viewer has already seen.
 
-`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&color=white`
+`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&color=white`
 
 Valid parameter values are red and white, and, by default, the player uses the color red in the video progress bar.
 
@@ -98,13 +105,13 @@ Note: Setting the color parameter to white will disable the modestbranding optio
 
 Setting this parameter's value to 1 causes the player to not respond to keyboard controls. The default value is 0.
 
-`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&disablekb=1`
+`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&disablekb=1`
 
 **end**
 
 This parameter specifies the time, measured in seconds from the start of the video, when the player should stop playing the video. The parameter value is a positive integer.
 
-`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&end=10`
+`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&end=10`
 
 The time is measured from the beginning of the video and not from the value of the start player parameter.
 
@@ -112,13 +119,13 @@ The time is measured from the beginning of the video and not from the value of t
 
 This parameter lets you use a YouTube player that does not show a YouTube logo. Setting the parameter value to 1 prevent the YouTube logo from displaying in the control bar.
 
-`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&modestbranding=1`
+`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&modestbranding=1`
 
 **start**
 
 This parameter causes the player to begin playing the video at the given number of seconds from the start of the video. The parameter value is a positive integer.
 
-`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&start=5`
+`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&start=5`
 
 **loop**
 
@@ -126,7 +133,7 @@ This parameter causes the video to play repeatedly. The parameter value is a pos
 
 In order for the loop feature to work, the video needs to be turned into a single-video playlist as well.
 
-`http&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&playlist=Vpg9yizPP_g&loop=1`
+`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&playlist=Vpg9yizPP_g&loop=1`
 
 For documentation please visit the [YouTube](https://noorsplugin.com/simple-youtube-embed-plugin/) plugin page
 
@@ -155,6 +162,9 @@ Yes.
 none
 
 == Changelog ==
+
+= 1.1.0.3 =
+* Added support for the mute parameter.
 
 = 1.1.0.2 =
 * Some cleanup for the oEmbed url.
