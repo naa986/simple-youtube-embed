@@ -4,7 +4,7 @@ Donate link: https://noorsplugin.com/
 Tags: youtube, video, embed, iframe, responsive
 Requires at least: 3.0
 Tested up to: 6.3
-Stable tag: 1.1.0.3
+Stable tag: 1.1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -162,6 +162,9 @@ Yes.
 none
 
 == Changelog ==
+
+= 1.1.0.4 =
+* Additional check for the settings link.
 
 = 1.1.0.3 =
 * Added support for the mute parameter.

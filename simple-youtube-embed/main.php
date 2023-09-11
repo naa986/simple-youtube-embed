@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Simple YouTube Embed
-Version: 1.1.0.3
+Version: 1.1.0.4
 Plugin URI: https://noorsplugin.com/simple-youtube-embed-plugin/
 Author: naa986
 Author URI: https://noorsplugin.com/
@@ -15,7 +15,7 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
 {
     class SIMPLE_YOUTUBE_EMBED
     {
-        var $plugin_version = '1.1.0.3';
+        var $plugin_version = '1.1.0.4';
         var $plugin_url;
         var $plugin_path;
         function __construct()
@@ -31,7 +31,6 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
         {
             if(is_admin( ) )
             {
-                add_filter('plugin_action_links', array($this,'add_plugin_action_links'), 10, 2 );
                 include_once('extensions/simple-youtube-embed-extensions.php');
             }
             add_action('plugins_loaded', array($this, 'plugins_loaded_handler'));
@@ -72,6 +71,10 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
         
         function plugins_loaded_handler()
         {
+            if(is_admin() && current_user_can('manage_options'))
+            {
+                add_filter('plugin_action_links', array($this, 'add_plugin_action_links'), 10, 2 );
+            }
             load_plugin_textdomain('simple-youtube-embed', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/'); 
         }
 
