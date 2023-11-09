@@ -3,7 +3,7 @@ Contributors: naa986
 Donate link: https://noorsplugin.com/
 Tags: youtube, video, embed, iframe, responsive
 Requires at least: 3.0
-Tested up to: 6.3
+Tested up to: 6.4
 Stable tag: 1.1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -20,24 +20,16 @@ Simple YouTube Embed is easy to use because there is no setting to configure. It
 
 === Features ===
 
-* Pretty YouTube video embed.
-* Embed a video in WordPress from your YouTube channel.
 * Responsive and mobile friendly.
 * Proper YouTube video embed with no additional JavaScript code.
 * No setting to configure. Install, activate and start using it.
 * No YouTube API key needed.
-* Embed YouTube videos in WordPress with the YouTube block
+* Embed YouTube videos in WordPress with the YouTube block.
 * Automatically play a video.
 * Enable/Disable display of suggested videos when the video finishes.
 * Enable/Disable player controls.
-* Enable/Disable video information.
 * Enable/Disable fullscreen.
-* Enable white color in the YouTube player's video progress bar.
-* Disable keyboard controls in the player.
-* Specify a time when the player should stop playing the video.
-* Specify a time when the player should begin playing the video.
-* Prevent the YouTube logo from displaying in the control bar.
-* Mute a YouTube Video
+* Mute a YouTube Video.
 
 === Simple YouTube Embed Extensions ===
 
