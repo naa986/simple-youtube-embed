@@ -4,7 +4,7 @@ Donate link: https://noorsplugin.com/
 Tags: youtube, video, embed, iframe, responsive
 Requires at least: 3.0
 Tested up to: 6.7
-Stable tag: 1.1.0.4
+Stable tag: 1.1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,6 +79,14 @@ If you want to turn a video into a single-video playlist you can add "playlist=V
 
 `https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&playlist=Vpg9yizPP_g`
 
+**YouTube Video IV Load Policy**
+
+To not show video annotations by default you can add "iv_load_policy=3" to your YouTube URL.
+
+`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&iv_load_policy=3`
+
+Video annotations are shown by default.
+
 === YouTube Advanced Parameters ===
 
 With the Advanced Parameters extension you can use additional advanced parameters in your YouTube videos.
@@ -106,12 +114,6 @@ This parameter specifies the time, measured in seconds from the start of the vid
 `https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&end=10`
 
 The time is measured from the beginning of the video and not from the value of the start player parameter.
-
-**modestbranding**
-
-This parameter lets you use a YouTube player that does not show a YouTube logo. Setting the parameter value to 1 prevent the YouTube logo from displaying in the control bar.
-
-`https&#58;//www.youtube.com/watch?v=Vpg9yizPP_g&modestbranding=1`
 
 **start**
 
@@ -154,6 +156,9 @@ Yes.
 none
 
 == Changelog ==
+
+= 1.1.0.5 =
+* Added support for iv_load_policy.
 
 = 1.1.0.4 =
 * Additional check for the settings link.

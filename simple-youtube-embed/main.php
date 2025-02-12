@@ -1,21 +1,24 @@
 <?php
 /*
 Plugin Name: Simple YouTube Embed
-Version: 1.1.0.4
+Version: 1.1.0.5
 Plugin URI: https://noorsplugin.com/simple-youtube-embed-plugin/
 Author: naa986
 Author URI: https://noorsplugin.com/
-Description: Embed YouTube videos in WordPress with native lazy loading support
+Description: Embed YouTube videos in WordPress and customize the YouTube player
 Text Domain: simple-youtube-embed
 Domain Path: /languages 
 */
 
-if(!defined('ABSPATH')) exit;
+if(!defined('ABSPATH')) {
+    exit;
+}
+
 if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
 {
     class SIMPLE_YOUTUBE_EMBED
     {
-        var $plugin_version = '1.1.0.4';
+        var $plugin_version = '1.1.0.5';
         var $plugin_url;
         var $plugin_path;
         function __construct()
@@ -53,11 +56,15 @@ if(!class_exists('SIMPLE_YOUTUBE_EMBED'))
         }
         function plugin_url()
         {
-            if($this->plugin_url) return $this->plugin_url;
+            if($this->plugin_url) {
+                return $this->plugin_url;
+            }
             return $this->plugin_url = plugins_url( basename( plugin_dir_path(__FILE__) ), basename( __FILE__ ) );
         }
         function plugin_path(){ 	
-            if ( $this->plugin_path ) return $this->plugin_path;		
+            if ( $this->plugin_path ) {
+                return $this->plugin_path;
+            }
             return $this->plugin_path = untrailingslashit( plugin_dir_path( __FILE__ ) );
         }
         function add_plugin_action_links($links, $file)
@@ -194,6 +201,12 @@ function simple_youtube_video_embed($html, $url, $attr, $post_ID)
     if(isset($data['mute']) && $data['mute']=="1"){
         if(strpos($src, 'mute') === false){
             $src = add_query_arg('mute', '1', $src);
+            $html = preg_replace('/src="(.*?)"/', 'src="'.$src.'"', $html);
+        }
+    }
+    if(isset($data['iv_load_policy']) && $data['iv_load_policy']=="3"){
+        if(strpos($src, 'iv_load_policy') === false){
+            $src = add_query_arg('iv_load_policy', '3', $src);
             $html = preg_replace('/src="(.*?)"/', 'src="'.$src.'"', $html);
         }
     }
