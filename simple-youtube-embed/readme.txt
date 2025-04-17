@@ -3,7 +3,7 @@ Contributors: naa986
 Donate link: https://noorsplugin.com/
 Tags: youtube, video, embed, iframe, responsive
 Requires at least: 3.0
-Tested up to: 6.7
+Tested up to: 6.8
 Stable tag: 1.1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
